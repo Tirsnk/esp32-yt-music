@@ -1,8 +1,9 @@
 FROM python:3.11-slim
 
+COPY --from=denoland/deno:bin /deno /usr/local/bin/deno
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
-    nodejs \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 

@@ -23,6 +23,8 @@ async def resolve_youtube_audio(query: str) -> tuple[str, str]:
         "yt-dlp",
         "--no-playlist",
         "--no-warnings",
+        "--remote-components", "ejs:github",
+        "--extractor-args", "youtube:player_client=default,web_safari,tv",
         "-f", "bestaudio/best",
         "--print", "title",
         "--print", "url",
